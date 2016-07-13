@@ -5,4 +5,4 @@ ADD ./templates /etc/confd/templates
 ADD ./run.sh /entrypoint/run.sh
 
 ENTRYPOINT ["/confd/confd"]
-CMD ["--backend", "env", "--onetime", "-log-level", "debug"]
+CMD ["--backend", "env", "--onetime"]
