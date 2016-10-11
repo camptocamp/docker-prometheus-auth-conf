@@ -1,5 +1,5 @@
 global
-	log 10.42.24.10:1514 local1 notice
+	log 10.42.24.10:514 local1 notice
 	chroot /var/lib/haproxy
 	user nobody
 	group nobody
@@ -8,6 +8,8 @@ global
 defaults
 	log global
 	mode http
+	option httplog
+	log-tag haproxy-promauth
 	option dontlog-normal
 	option httpchk
 	timeout connect 5000
