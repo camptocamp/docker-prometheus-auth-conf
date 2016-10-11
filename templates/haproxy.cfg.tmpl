@@ -38,6 +38,7 @@ frontend http-in
 backend prometheus
 	acl valid_user http_auth(prometheus)
 	http-request auth realm Prometheus if !valid_user
+	block if METH_POST { path_beg /-/ }
 	rspidel ^Access-Control-Allow-Origin:.*
 	rspadd Access-Control-Allow-Origin:\ {{getenv "GRAFANA_URL"}}
 	rspadd Access-Control-Allow-Credentials:\ true
